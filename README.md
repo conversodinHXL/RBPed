@@ -5,16 +5,15 @@ RBPed is a bioinformatics pipeline to identify differential RNA editing events b
 Xiaolin Hu, Qin Zou, Li Yao and Xuerui Yang
 
 ## 1. python dependency
-RBPed was compromised by samtools, REDItools V1, and R. Among those softwares, REDItools V1 depends on python2.7, besides, it depends on pysam 0.7.6
-   you can install with code: 
+RBPed was compromised by samtools, REDItools V1, and R. Among those softwares, REDItools V1 depends on python2.7, besides, it depends on pysam 0.7.6. You can install with code: 
 * python -m pip install pysam==0.7.6
 
-Also, it depends on some bionformatics packages
+Also, it depends on some bioinformatics packages
 * samtools
 
 ## 2. reference file
-the ference genome (hg19) downloaded from GENCODE website. Known editing events downloaded from REDIportal database.
-thos data can be downloaded within this pipeline.
+the reference genome (hg19) downloaded from GENCODE website. Known editing events downloaded from REDIportal database.
+Those data can be downloaded within this pipeline.
 
 ## 3. Run
 * ### A. Downloading mapping files (bam) from ENCODE websites.
@@ -57,6 +56,3 @@ m2=cbind(data,unlist(Pvalue),delta,eclipEL=data$V7/data$V8,RNAEL=data$V11/data$V
 
 ## License
 RBPed is licensed under the MIT license
-
-
-
