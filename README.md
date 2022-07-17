@@ -17,7 +17,7 @@ thos data can be downloaded within this pipeline.
 
 ## 3. Run
 * ### A. downloading mapping files (bam) from ENCODE websites.
-'''
+```
 wget http://srv00.recas.ba.infn.it/webshare/ATLAS/donwload/TABLE1_hg19.txt.gz
 gunzip TABLE1_hg19.txt.gz
 grep -v 'Region' TABLE1_hg19.txt |awk '{print $1,$2,$5}' | sed 's/ /\t/g' | sed 's/chr//g' | sort -k1,1 -k2,2n  > REDIportals.forREDItools.txt
@@ -25,16 +25,17 @@ grep -v 'Region' TABLE1_hg19.txt |awk '{print $1,$2,$5}' | sed 's/ /\t/g' | sed 
 wget https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_40/GRCh37_mapping/GRCh37.primary_assembly.genome.fa.gz
 gunzip GRCh37.primary_assembly.genome.fa.gz
 sed 's/chr//g' GRCh37.primary_assembly.genome.fa > hg19.ref.fa
-'''
+```
 * ### B. sort, index bam files
-'''
+```
 samtools  sort --threads 16  -o XXX.sorted.bam XXX.eCLIP.bam
 samtools index XXX.sorted.ba
-'''
+```
 * ### C. detection RNA editing events with REDItools.
-'''
+Notice: if this code not work out properly, chromosome name (with chr or not) should be checked in bam, reference and REDIportals data.
+```
 python2.7 REDItoolKnown.py  -i XXX.sorted.bam -f hg19.ref.fa -l REDIportals.forREDItools.txt -t 16 -c 10 -T 6-0  -p -e -d -u -m20  -v 0 -n 0.0 -o outputDir
-'''
+```
 * ### D. merge RNA editing events in different replicate for different fractional RNA-seq dataset
 * ### D. merge RNA editing events in different replicate for specific RBP's eCLIP
 * ### E. merge RNA editing events for specific eCLIP and RNA-seq
