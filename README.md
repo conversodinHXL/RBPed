@@ -6,7 +6,8 @@ Xiaolin Hu, Qin Zou, Li Yao and Xuerui Yang
 
 ## 1. python dependency
 RBPed was compromised by samtools, REDItools V1, and R. Among those softwares, REDItools V1 depends on python2.7, besides, it depends on pysam 0.7.6
-* you can install with code: python -m pip install pysam==0.7.6
+   you can install with code: 
+* python -m pip install pysam==0.7.6
 
 Also, it depends on some bionformatics packages
 * samtools
